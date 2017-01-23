@@ -26,7 +26,7 @@
   },
   "dependencies": {
     "skatejs": "^4.6.2",
-    "skatejs-web-components": "^5.0.2",
+    "skatejs-web-components": "^5.1.0",
     "tslib": "^1.5.0"
   }
 }
