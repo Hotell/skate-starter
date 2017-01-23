@@ -2,11 +2,14 @@
   "compilerOptions": {
     "module": "es2015",
     "target": "es5",
+    "moduleResolution": "node",
     "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "noEmitHelpers": true,
+    "importHelpers": true,
     "lib": [
       "dom",
       "es2015"

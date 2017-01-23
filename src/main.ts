@@ -1,9 +1,11 @@
+import { define } from 'skatejs';
+import { App } from './app';
+
 const mountPoint = document.getElementById('app');
-const App = () => `<div>It Works!</div>`;
 
 const render = (what: Function, where: HTMLElement | null) => {
   if (where) {
-    where.innerHTML = what();
+    where.innerHTML = `<${App.is}></${App.is}>`;
   }
 };
 

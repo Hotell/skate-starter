@@ -1,5 +1,6 @@
 const {resolve} = require('path');
 const webpack = require('webpack');
+const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize;
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack config helpers
@@ -20,7 +21,7 @@ module.exports = (env) => {
     resolve: {
       extensions: ['.js', '.ts', '.tsx']
     },
-    devtool: ifProd('source-map', 'cheap-module-source-map'),
+    devtool: 'source-map',
     module: {
       rules: [
         // Typescript
@@ -57,6 +58,21 @@ module.exports = (env) => {
       // Set NODE_ENV to enable production react version
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: ifProd('"production"', '"development"') }
+      }),
+
+      new CommonsChunkPlugin({
+        name: 'polyfills',
+        chunks: ['polyfills']
+      }),
+      // This enables tree shaking of the vendor modules
+      new CommonsChunkPlugin({
+        name: 'vendor',
+        chunks: ['main'],
+        minChunks: (module, count) => /node_modules\//.test(module.resource)
+      }),
+      // Specify the correct order the scripts will be injected in
+      new CommonsChunkPlugin({
+        name: ['polyfills', 'vendor'].reverse()
       }),
 
       // prints more readable module names in the browser console on HMR updates
