@@ -5,6 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --env.dev --hot",
+    "format:ts":"tsfmt -r",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
