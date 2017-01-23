@@ -10,6 +10,7 @@
     "jsxFactory": "h",
     "noEmitHelpers": true,
     "importHelpers": true,
+    "outDir": "ts-output",
     "lib": [
       "dom",
       "es2015"
