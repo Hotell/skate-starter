@@ -1,0 +1,30 @@
+{
+	// See http://go.microsoft.com/fwlink/?LinkId=827846
+	// for the documentation about the extensions.json format
+	"recommendations": [
+		// Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+
+    // Editor tools
+    "dkundel.vscode-new-file",
+    "EditorConfig.EditorConfig",
+
+    // Git
+    "donjayamanne.githistory",
+    "codezombiech.gitignore",
+    "eamodio.gitlens",
+
+    // Typescript
+    "steoates.autoimport",
+
+    // Linters
+    "eg2.tslint",
+
+    // Project tools
+    "alefragnani.project-manager",
+
+    // Theme
+    "robertohuertasm.vscode-icons",
+    "zhuangtongfa.Material-theme"
+
+	]
+}
