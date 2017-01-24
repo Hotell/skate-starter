@@ -11,8 +11,9 @@ module.exports = (env) => {
   return {
     context: resolve(__dirname, 'src'),
     entry: {
-      polyfills: './polyfills.ts',
-      main: './main.ts',
+      // polyfills: './polyfills.ts',
+      // main: './main.ts',
+      boot: './boot.ts',
     },
     output: {
       filename: '[name].[hash].js',
@@ -60,20 +61,20 @@ module.exports = (env) => {
         'process.env': { NODE_ENV: ifProd('"production"', '"development"') }
       }),
 
-      new CommonsChunkPlugin({
-        name: 'polyfills',
-        chunks: ['polyfills']
-      }),
+      // new CommonsChunkPlugin({
+      //   name: 'polyfills',
+      //   chunks: ['polyfills']
+      // }),
       // This enables tree shaking of the vendor modules
-      new CommonsChunkPlugin({
-        name: 'vendor',
-        chunks: ['main'],
-        minChunks: (module, count) => /node_modules\//.test(module.resource)
-      }),
+      // new CommonsChunkPlugin({
+      //   name: 'vendor',
+      //   chunks: ['main'],
+      //   minChunks: (module, count) => /node_modules\//.test(module.resource)
+      // }),
       // Specify the correct order the scripts will be injected in
-      new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
-      }),
+      // new CommonsChunkPlugin({
+      //   name: ['polyfills', 'vendor'].reverse()
+      // }),
 
       // prints more readable module names in the browser console on HMR updates
       ifNotProd(new webpack.NamedModulesPlugin()),

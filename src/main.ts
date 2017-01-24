@@ -1,6 +1,8 @@
 import { define } from 'skatejs';
 import { App } from './app';
 
+
+
 const mountPoint = document.getElementById('app');
 
 const render = (what: Function, where: HTMLElement | null) => {
@@ -9,4 +11,6 @@ const render = (what: Function, where: HTMLElement | null) => {
   }
 };
 
-render(App, mountPoint);
+export const renderApp = () => render(App,mountPoint);
+
+
