@@ -37,8 +37,7 @@ module.exports = (env) => {
           test: /\.css$/,
           include: /node_modules/,
           // @TODO replace with "use", we need to use legacy "loader" instead of "use" to make ExtractTextPlugin@2-beta.4 work
-          use:
-          [
+          use: [
             'style-loader',
             {
               loader: 'css-loader',
@@ -46,11 +45,28 @@ module.exports = (env) => {
             }
           ]
         },
+        // global app styles
         {
-          test: /\.css$/,
+          test: /styles\.css$/,
           include: /src/,
-          use: ['style-loader', 'css-loader']
+          use: [
+            { loader: "style-loader" },
+            { loader: "css-loader" },
+          ]
         },
+        // ShadowDom inline string styles
+        {
+          resource:{
+            test: /\.css$/,
+            include: /src/,
+            not: [resolve(__dirname, 'src/styles.css')]
+          },
+          use: [
+            { loader:'to-string-loader' },
+            { loader:'css-loader'},
+          ]
+        },
+
       ]
     },
     plugins: removeEmpty([

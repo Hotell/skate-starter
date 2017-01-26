@@ -1,3 +1,4 @@
+import './styles.css';
 import { define } from 'skatejs';
 import { App } from './app';
 
