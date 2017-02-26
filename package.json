@@ -1,33 +1,64 @@
 {
   "name": "skate-starter",
   "version": "1.0.0",
-  "description": "",
+  "repository": "https://www.github.com/Hotell/skate-starter",
+  "description": "SkateJS + Typescript starter",
+  "keywords": ["webcomponents","reactive-ui"],
+  "author": "Martin Hochel",
+  "license": "MIT",
   "main": "main.js",
   "scripts": {
     "start": "webpack-dev-server --env.dev --hot",
-    "format:ts": "tsfmt -r",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "ts:lint": "tslint \"src/**/*.tsx\" \"src/**/*.ts\"",
+    "ts:lint:fix": "npm run ts:lint -- --fix",
+    "ts:format": "tsfmt --verify",
+    "ts:format:fix": "tsfmt -r",
+    "ts:style": "npm run ts:lint && npm run ts:format",
+    "ts:style:fix": "npm run ts:lint:fix && npm run ts:format:fix",
+    "commit": "git-cz",
+    "commitmsg": "validate-commit-msg",
+    "verify": "npm run ts:style && npm test",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "prepush": "npm run verify",
+    "release": "release:local && release:github",
+    "release:local": "npm run build && standard-version",
+    "release:github": "git push --no-verify --follow-tags origin master"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "engines": {
+    "node": ">=6.9"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "validate-commit-msg": {
+      "types": "conventional-commit-types",
+      "maxSubjectLength": 120
+    }
+  },
   "devDependencies": {
-    "awesome-typescript-loader": "^3.0.0-beta.18",
-    "css-loader": "^0.26.1",
-    "html-webpack-plugin": "^2.26.0",
-    "style-loader": "^0.13.1",
-    "to-string-loader": "^1.1.5",
-    "tslint": "^4.3.1",
-    "typescript": "^2.1.5",
-    "typescript-formatter": "^4.0.1",
-    "webpack": "^2.2.0.",
-    "webpack-config-utils": "^2.3.0",
-    "webpack-dev-server": "^2.2.0"
+    "awesome-typescript-loader": "3.0.8",
+    "commitizen": "2.9.6",
+    "css-loader": "0.26.2",
+    "cz-conventional-changelog": "2.0.0",
+    "html-webpack-plugin": "2.28.0",
+    "husky": "0.13.1",
+    "standard-version": "4.0.0",
+    "style-loader": "0.13.2",
+    "to-string-loader": "1.1.5",
+    "tslint": "4.4.2",
+    "tslint-react": "2.4.0",
+    "typescript": "2.2.1",
+    "typescript-formatter": "4.1.2",
+    "validate-commit-msg": "^2.11.1",
+    "webpack": "2.2.1",
+    "webpack-config-utils": "2.3.0",
+    "webpack-dev-server": "2.4.1"
   },
   "dependencies": {
-    "sanitize.css": "^4.1.0",
-    "skatejs": "^4.6.2",
-    "skatejs-web-components": "^5.1.0",
-    "tslib": "^1.5.0"
+    "sanitize.css": "4.1.0",
+    "skatejs": "4.6.7",
+    "skatejs-web-components": "5.2.1",
+    "tslib": "1.6.0"
   }
 }
