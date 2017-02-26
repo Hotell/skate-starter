@@ -1,5 +1,6 @@
 # Skate-starter
 
+[![Build Status](https://travis-ci.org/Hotell/skate-starter.svg?branch=master)](https://travis-ci.org/Hotell/skate-starter)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 
 > Webpack 2, Typescript 2, SkateJs for super powered reactive web-components
