@@ -1,14 +1,10 @@
 language: node_js
-node_js: stable
+node_js: '6'
+cache: yarn
 notifications:
   email: false
-before_script:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-cache:
-  directories:
-  - $HOME/.yarn-cache
-install:
-  - yarn
+# allow this once https://github.com/travis-ci/travis-ci/issues/6933 is fixed
+# install:
+#  - yarn
 script:
   - npm run build
