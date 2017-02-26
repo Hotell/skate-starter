@@ -1,10 +1,17 @@
 :host {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
+  font-size: 2rem;
 }
 :host:not(:defined) {
   /* Pre-style, give layout, replicate app-drawer's eventual styles, etc. */
 
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+}
+blockquote {
+  font-style: italic;
+  font-size: .5em;
 }
