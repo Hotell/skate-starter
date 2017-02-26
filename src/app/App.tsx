@@ -7,7 +7,7 @@ type Props = {
 };
 export class App extends Component<Props> {
   static get is() { return 'my-app'; }
-  static get props(){
+  static get props() {
     return {
       greeting: prop.string()
     };
@@ -15,7 +15,7 @@ export class App extends Component<Props> {
 
   greeting: string = 'World';
 
-  renderCallback({greeting}: Props) {
+  renderCallback({ greeting }: Props) {
     return [
       <style>{styles}</style>,
       <div>Hello {greeting}!</div>,
