@@ -1,7 +1,8 @@
-const {resolve} = require('path');
+const { resolve } = require('path');
 const webpack = require('webpack');
 const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize;
 
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack config helpers
 const { getIfUtils, removeEmpty } = require('webpack-config-utils');
@@ -22,6 +23,9 @@ module.exports = (env) => {
       extensions: ['.js', '.ts', '.tsx']
     },
     devtool: 'source-map',
+    performance: {
+      hints: ifProd() && 'warning'
+    },
     module: {
       rules: [
         // Typescript
@@ -32,11 +36,8 @@ module.exports = (env) => {
         },
         // CSS
         {
-          // Do not transform vendor's CSS with CSS-modules
-          // The point is that they remain in global scope.
           test: /\.css$/,
           include: /node_modules/,
-          // @TODO replace with "use", we need to use legacy "loader" instead of "use" to make ExtractTextPlugin@2-beta.4 work
           use: [
             'style-loader',
             {
@@ -49,21 +50,27 @@ module.exports = (env) => {
         {
           test: /styles\.css$/,
           include: /src/,
-          use: [
-            { loader: "style-loader" },
-            { loader: "css-loader" },
-          ]
+          use: ifNotProd(
+            [
+              { loader: "style-loader" },
+              { loader: "css-loader" },
+            ],
+            ExtractTextPlugin.extract({
+              fallback: "style-loader",
+              use: "css-loader"
+            })
+          )
         },
         // ShadowDom inline string styles
         {
-          resource:{
+          resource: {
             test: /\.css$/,
             include: /src/,
             not: [resolve(__dirname, 'src/styles.css')]
           },
           use: [
-            { loader:'to-string-loader' },
-            { loader:'css-loader'},
+            { loader: 'to-string-loader' },
+            { loader: 'css-loader' },
           ]
         },
 
@@ -75,6 +82,10 @@ module.exports = (env) => {
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: ifProd('"production"', '"development"') }
       }),
+
+      ifProd(
+        new ExtractTextPlugin('[name].css')
+      ),
 
       new CommonsChunkPlugin({
         name: 'polyfills',
@@ -88,11 +99,29 @@ module.exports = (env) => {
       }),
       // Specify the correct order the scripts will be injected in
       new CommonsChunkPlugin({
-        name: ['polyfills', 'vendor'].reverse()
+        name: ['vendor', 'polyfills']
       }),
 
       // prints more readable module names in the browser console on HMR updates
-      ifNotProd(new webpack.NamedModulesPlugin()),
+      ifNotProd(
+        new webpack.NamedModulesPlugin()
+      ),
+
+      ifProd(
+        new UglifyJsPlugin({
+          sourceMap: true,
+          compress: {
+            screw_ie8: true,
+            warnings: false,
+          },
+        })
+      ),
+
+      new webpack.LoaderOptionsPlugin(
+        ifProd({
+          minimize: true
+        })
+      ),
 
       new HtmlWebpackPlugin({
         template: resolve('src', 'index.html'),
