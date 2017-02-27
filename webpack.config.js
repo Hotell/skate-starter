@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize;
 
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // webpack config helpers
@@ -25,6 +26,9 @@ module.exports = (env) => {
     devtool: 'source-map',
     performance: {
       hints: ifProd() && 'warning'
+    },
+    devServer: {
+      stats: 'minimal',
     },
     module: {
       rules: [
@@ -82,6 +86,8 @@ module.exports = (env) => {
       new webpack.DefinePlugin({
         'process.env': { NODE_ENV: ifProd('"production"', '"development"') }
       }),
+
+      new ProgressBarPlugin(),
 
       ifProd(
         new ExtractTextPlugin('[name].css')
