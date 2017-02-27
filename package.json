@@ -29,7 +29,7 @@
     "verify": "npm run ts:style && npm test",
     "test": "echo \"Error: no test specified\" && exit 0",
     "prepush": "npm run verify",
-    "release": "release:local && release:github",
+    "release": "npm run release:local && npm run release:github",
     "release:local": "npm run build && standard-version",
     "release:github": "git push --no-verify --follow-tags origin master"
   },
