@@ -19,7 +19,7 @@ export default class MarkdowEditor extends Component<Props> {
   private mdTargetRef: HTMLDivElement;
 
   private content: string = (
-`## Snarkdown
+    `## Snarkdown
 
 ![snarkdown](http://emojipop.net/data/images/emoji_set_77.png)
 
