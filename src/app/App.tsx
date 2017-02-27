@@ -1,11 +1,12 @@
 import { Component, h, prop } from 'skatejs';
 
 import styles from './App.css';
+import { MarkdownEditor } from './components/markdown-editor';
 
 type Props = {
   greeting: string,
 };
-export class App extends Component<Props> {
+export default class App extends Component<Props> {
   static get is() { return 'my-app'; }
   static get props() {
     return {
@@ -21,9 +22,8 @@ export class App extends Component<Props> {
       <div>Hello {greeting}!</div>,
       <p>
         <blockquote>Don't hate! Just Skate!</blockquote>
-      </p>
+      </p>,
+      <MarkdownEditor />
     ];
   }
-}
-
-;
+};
