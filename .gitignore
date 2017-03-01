@@ -49,4 +49,5 @@ jspm_packages
 # ts generated files
 ts-output
 dist
+stats.json
 

@@ -36,7 +36,12 @@ module.exports = (env) => {
         {
           test: /\.tsx?$/,
           include: /src/,
-          use: ['awesome-typescript-loader']
+          use: [{
+            loader: 'awesome-typescript-loader',
+            options: {
+              silent: ifProd(),
+            }
+          }]
         },
         // CSS
         {
