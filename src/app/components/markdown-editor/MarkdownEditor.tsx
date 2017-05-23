@@ -1,5 +1,5 @@
 import { bind } from 'decko';
-import { Component, ComponentProps, h, prop, props } from 'skatejs';
+import { Component, ComponentProps, h, props } from 'skatejs';
 import snarkdown from 'snarkdown';
 
 import styles from './MarkdownEditor.css';
@@ -12,7 +12,7 @@ export default class MarkdowEditor extends Component<Props> {
   static get is() { return 'my-markdown-editor'; }
   static get props(): ComponentProps<MarkdowEditor, Props> {
     return {
-      content: prop.string(),
+      content: props.string,
     };
   }
 
@@ -35,13 +35,13 @@ Just like that!`
 
   renderCallback() {
     const { content } = this;
-    return [
-      <style>{styles}</style>,
+    return (
       <div>
+        <style>{styles}</style>
         <textarea class="in" cols={40} rows={10} onInput={this.handleInput}>{content}</textarea>
-        <div class="out" ref={this.setMdRef} skip />
+        <div class="out" ref={this.setMdRef} />
       </div>
-    ];
+    );
   }
 
   renderedCallback() {
@@ -57,7 +57,7 @@ Just like that!`
   @bind()
   private handleInput(ev: KeyboardEvent) {
     const { value } = ev.target as HTMLTextAreaElement;
-    props(this, { content: value });
+    this.props = { content: value };
   }
 
   private renderMarkdown(text: string) {

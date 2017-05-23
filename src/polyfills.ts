@@ -1,1 +1,1 @@
-import 'skatejs-web-components';
+import '@skatejs/web-components';

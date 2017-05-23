@@ -32,6 +32,12 @@ module.exports = (env) => {
     },
     module: {
       rules: [
+        // addition - add source-map support
+        {
+          enforce: "pre",
+          test: /\.jsx?$/,
+          loader: "source-map-loader"
+        },
         // Typescript
         {
           test: /\.tsx?$/,
