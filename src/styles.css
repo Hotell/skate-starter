@@ -1,5 +1,7 @@
 @import "~sanitize.css/sanitize.css";
 
-my-app {
+#app {
   background: tomato;
+  height: 100vh;
+  font-size: 2rem;
 }

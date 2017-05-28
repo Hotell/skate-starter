@@ -1,12 +1,17 @@
+
 :host{
   font-size: 1rem;
   padding: .5rem;
   box-sizing: border-box;
   box-shadow: 1px 0 1rem #333;
- width: 80%;
+  width: 80%;
 }
 :host > div {
 
+}
+
+textarea {
+  background-color: white;
 }
 
 .in {

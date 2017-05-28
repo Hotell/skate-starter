@@ -59,8 +59,7 @@
     "progress-bar-webpack-plugin": "1.9.3",
     "pushstate-server": "2.2.1",
     "shx": "0.2.2",
-    "skatejs": "file:///mnt/c/Users/hoche/Documents/Devel/github/skatejs/skatejs",
-    "source-map-loader": "^0.2.1",
+    "source-map-loader": "0.2.1",
     "standard-version": "4.0.0",
     "strip-json-comments-cli": "^1.0.1",
     "style-loader": "0.13.2",
@@ -69,6 +68,8 @@
     "tslint-react": "3.0.0",
     "typescript": "2.3.3",
     "typescript-formatter": "5.2.0",
+    "uglify-es": "3.0.12",
+    "uglifyjs-webpack-plugin": "0.4.3",
     "validate-commit-msg": "2.12.1",
     "webpack": "2.6.0",
     "webpack-bundle-analyzer": "2.3.0",
@@ -76,11 +77,11 @@
     "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
+    "@webcomponents/webcomponentsjs": "1.0.1",
     "decko": "1.2.0",
-    "skatejs": "file:///mnt/c/Users/hoche/Documents/Devel/github/skatejs/skatejs",
     "preact": "8.1.0",
     "sanitize.css": "5.0.0",
-    "@skatejs/web-components": "1.0.0",
+    "skatejs": "5.0.0-alpha.9",
     "snarkdown": "1.2.2",
     "tslib": "1.7.1"
   }

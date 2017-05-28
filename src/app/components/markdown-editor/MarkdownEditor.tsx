@@ -2,42 +2,38 @@ import { bind } from 'decko';
 import { Component, ComponentProps, h, props } from 'skatejs';
 import snarkdown from 'snarkdown';
 
+import { scopeCss } from '../../../utils';
 import styles from './MarkdownEditor.css';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'my-markdown-editor': Props
+    }
+  }
+}
 
 type Props = {
   content?: string;
 };
 
 export default class MarkdowEditor extends Component<Props> {
-  static get is() { return 'my-markdown-editor'; }
+  static readonly is = 'my-markdown-editor';
   static get props(): ComponentProps<MarkdowEditor, Props> {
     return {
       content: props.string,
     };
   }
 
+  css = scopeCss(this, styles);
+
   private mdTargetRef: HTMLDivElement;
 
-  private content: string = (
-    `## Snarkdown
-
-![snarkdown](http://emojipop.net/data/images/emoji_set_77.png)
-
-*[Snarkdown](http://github.com/developit/snarkdown)* is __easy__ to \`use\`!
-
-Here's an [**important** anchor link](#example).
-
-Two newlines creates a line break.
-
-Or, end a line with two spaces.
-Just like that!`
-  );
-
   renderCallback() {
-    const { content } = this;
+    const { content } = this.props;
     return (
       <div>
-        <style>{styles}</style>
+        <style>{this.css}</style>
         <textarea class="in" cols={40} rows={10} onInput={this.handleInput}>{content}</textarea>
         <div class="out" ref={this.setMdRef} />
       </div>
@@ -45,7 +41,7 @@ Just like that!`
   }
 
   renderedCallback() {
-    const { content } = this;
+    const { content = '' } = this.props;
     this.mdTargetRef.innerHTML = this.renderMarkdown(content);
   }
 
