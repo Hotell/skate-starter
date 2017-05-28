@@ -1,6 +1,7 @@
 const { resolve } = require('path');
 const webpack = require('webpack');
-const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize;
+const { CommonsChunkPlugin/*, UglifyJsPlugin*/ } = webpack.optimize;
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -14,7 +15,8 @@ module.exports = (env) => {
     context: resolve(__dirname, 'src'),
     entry: {
       polyfills: './polyfills.ts',
-      main: './main.ts',
+      // main is lazy loaded after polyfills are set
+      // main: './main.ts',
     },
     output: {
       filename: '[name].[hash].js',
@@ -126,6 +128,8 @@ module.exports = (env) => {
 
       ifProd(
         new UglifyJsPlugin({
+          // @TODO this is not final solution -> es-5-adapter is always chunk no #3
+          exclude: /3\.\w+\.js$/,
           sourceMap: true,
           compress: {
             screw_ie8: true,
