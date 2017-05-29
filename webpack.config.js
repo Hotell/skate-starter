@@ -131,16 +131,22 @@ module.exports = (env) => {
           // @TODO this is not final solution -> es-5-adapter is always chunk no #3
           exclude: /3\.\w+\.js$/,
           sourceMap: true,
-          compress: {
+          beautify: false,
+          mangle: {
             screw_ie8: true,
-            warnings: false,
+            keep_fnames: true
           },
+          compress: {
+            screw_ie8: true
+          },
+          comments: false
         })
       ),
 
       new webpack.LoaderOptionsPlugin(
         ifProd({
-          minimize: true
+          minimize: true,
+          debug: false
         })
       ),
 
