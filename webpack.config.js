@@ -134,8 +134,8 @@ module.exports = (env) => {
 
       ifProd(
         new UglifyJsPlugin({
-          // @TODO this is not final solution -> es-5-adapter is always chunk no #3
-          exclude: /3\.\w+\.js$/,
+          // @TODO this is not final solution -> es-5-adapter is always chunk no #1
+          exclude: /1\.\w+\.js$/,
           sourceMap: true,
           beautify: false,
           mangle: {

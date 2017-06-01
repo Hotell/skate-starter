@@ -1,6 +1,6 @@
 import { Component, h, props } from 'skatejs';
 
-import { scopeCss } from '../utils';
+import { scopeCss } from '../@skatejs/grip-tape';
 import styles from './App.css';
 import { store } from './app.store';
 import { MarkdownEditor } from './components/markdown-editor';

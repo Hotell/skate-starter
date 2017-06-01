@@ -1,8 +1,7 @@
-import { bind } from 'decko';
 import { Component, ComponentProps, h, props } from 'skatejs';
 import snarkdown from 'snarkdown';
 
-import { scopeCss } from '../../../utils';
+import { scopeCss } from '../../../@skatejs/grip-tape';
 import styles from './MarkdownEditor.css';
 
 declare global {
@@ -45,13 +44,11 @@ export default class MarkdowEditor extends Component<Props> {
     this.mdTargetRef.innerHTML = this.renderMarkdown(content);
   }
 
-  @bind()
-  private setMdRef(el: HTMLDivElement) {
+  private setMdRef = (el: HTMLDivElement) => {
     this.mdTargetRef = el;
   }
 
-  @bind()
-  private handleInput(ev: KeyboardEvent) {
+  private handleInput = (ev: KeyboardEvent) => {
     const { value } = ev.target as HTMLTextAreaElement;
     this.props = { content: value };
   }
