@@ -2,6 +2,7 @@ const { resolve } = require('path');
 const webpack = require('webpack');
 const { CommonsChunkPlugin/*, UglifyJsPlugin*/ } = webpack.optimize;
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
@@ -15,8 +16,7 @@ module.exports = (env) => {
     context: resolve(__dirname, 'src'),
     entry: {
       polyfills: './polyfills.ts',
-      // main is lazy loaded after polyfills are set
-      // main: './main.ts',
+      main: './main.ts',
     },
     output: {
       filename: '[name].[hash].js',
@@ -38,7 +38,8 @@ module.exports = (env) => {
         {
           enforce: "pre",
           test: /\.jsx?$/,
-          loader: "source-map-loader"
+          loader: "source-map-loader",
+          exclude: /src/
         },
         // Typescript
         {
@@ -94,6 +95,11 @@ module.exports = (env) => {
       ]
     },
     plugins: removeEmpty([
+
+      new CopyWebpackPlugin([
+        // here we are just copying es5shim adapter from node_modules if you wanna use it directly in HTML - NOT RECOMMENDED
+        { from: resolve(__dirname, 'node_modules/@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js' ), to: 'wc'},
+      ]),
 
       // Set NODE_ENV to enable production react version
       new webpack.DefinePlugin({

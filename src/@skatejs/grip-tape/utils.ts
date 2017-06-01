@@ -1,7 +1,7 @@
 import { Component } from 'skatejs';
-import { hasNativeShadowDomSupport } from './environment';
+import { hasNativeShadowDomSupport } from '../env';
 
-const $template = Symbol();
+const $template = typeof Symbol === 'function' && Symbol() || '__$template__';
 
 export function scopeCss(elem: Component<any> & { [key: string]: any }, css: string): string | void {
   if (hasNativeShadowDomSupport) {
