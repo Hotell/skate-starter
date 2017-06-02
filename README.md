@@ -31,4 +31,12 @@
 
 `yarn release`
 
+## bundle/polyfill sizes
 
+Of course not all browsers support WebComponents spec, so polyfills are needed.
+
+Here a little showcase what will be donwloaded by what browser at what size
+
+> Note sizes are only for minified code not g-zipper
+
+![chunk-sizes](docs/skate-plus-wc-bundle-sizes-with-new-lazy-loader.png)
