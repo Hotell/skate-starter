@@ -7,10 +7,10 @@ declare module 'snarkdown' {
   export default function parse(md: string): string;
 }
 
-
-declare const System: {
-  import(path: string): Promise<any>
-};
+declare module '@webcomponents/template';
+declare module '@webcomponents/webcomponents-platform';
+declare module '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
+declare module '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
 
 
 // webcomponents polyfill

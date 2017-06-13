@@ -18,7 +18,8 @@ export function loadWebComponentPolyfills(useEs5ShimAdapter = true) {
 function loadAdapter(useAdapter = true) {
   return useAdapter && window.customElements
     // tslint:disable-next-line:max-line-length
-    ? System.import(/* webpackChunkName = "es5-adapter" */ '@webcomponents/webcomponentsjs/custom-elements-es5-adapter.js')
+    // tslint:disable-next-line:whitespace
+    ? import( /* webpackChunkName: "es5-adapter" */ '@webcomponents/webcomponentsjs/custom-elements-es5-adapter')
     : Promise.resolve();
 }
 
@@ -73,11 +74,15 @@ function lazyLoadPolyfills() {
 
 function loadES6requiredPolyfills() {
   return Promise.all([
-    System.import('@webcomponents/template'),
-    System.import('@webcomponents/webcomponents-platform')
+    // tslint:disable:whitespace
+    import( /* webpackChunkName: "es6-with-template-polyfills" */ '@webcomponents/template'),
+    import( /* webpackChunkName: "es6-with-template-polyfills" */ '@webcomponents/webcomponents-platform')
+    // tslint:enable:whitespace
   ]);
 }
 
 function loadCEandSDpolyfill() {
-  return System.import('@webcomponents/webcomponentsjs/webcomponents-sd-ce.js');
+  // tslint:disable-next-line:max-line-length
+  // tslint:disable-next-line:whitespace
+  return import( /* webpackChunkName: "sd-ce-polyfills" */ '@webcomponents/webcomponentsjs/webcomponents-sd-ce');
 }

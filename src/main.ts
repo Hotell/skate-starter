@@ -6,7 +6,8 @@ const mountPoint = document.getElementById('app');
 
 whenWebComponentsReady()
   .then(() => {
-    return System.import('./app')
+    // tslint:disable-next-line:whitespace
+    return import( /* webpackChunkName: "app" */ './app')
       .then(({ App }) => {
         // here you can boot your App via your lib/framework specific code
         render(App, mountPoint);

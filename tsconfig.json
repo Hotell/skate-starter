@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "es2015",
+    "module": "esnext",
     "target": "es5",
     "moduleResolution": "node",
     "strict": true,
@@ -15,7 +15,12 @@
     "lib": [
       "dom",
       "es2015"
-    ]
+    ],
+    "typeRoots": [
+      "node_modules/@types",
+      "manual_types"
+    ],
+    "baseUrl": "."
   },
   "include": [
     "src/"
