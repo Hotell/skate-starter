@@ -1,5 +1,7 @@
 # Skate-starter
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/Hotell/skate-starter.svg)](https://greenkeeper.io/)
+
 [![Build Status](https://travis-ci.org/Hotell/skate-starter.svg?branch=master)](https://travis-ci.org/Hotell/skate-starter)
 [![Standard Version](https://img.shields.io/badge/release-standard%20version-brightgreen.svg)](https://github.com/conventional-changelog/standard-version)
 
