@@ -69,11 +69,11 @@
     "tslint-react": "3.0.0",
     "typescript": "rc",
     "typescript-formatter": "5.2.0",
-    "uglify-es": "3.0.15",
+    "uglify-es": "3.0.17",
     "uglifyjs-webpack-plugin": "0.4.3",
     "validate-commit-msg": "2.12.2",
     "webpack": "2.6.1",
-    "webpack-bundle-analyzer": "2.3.0",
+    "webpack-bundle-analyzer": "2.8.2",
     "webpack-config-utils": "2.3.0",
     "webpack-dev-server": "2.4.5"
   },
@@ -84,7 +84,7 @@
     "es6-promise": "4.1.0",
     "preact": "8.1.0",
     "sanitize.css": "5.0.0",
-    "skatejs": "5.0.0-alpha.9",
+    "skatejs": "5.0.0-alpha.10",
     "snarkdown": "1.2.2",
     "tslib": "1.7.1"
   }
