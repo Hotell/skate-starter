@@ -68,7 +68,7 @@
     "tslint": "5.4.3",
     "tslint-react": "3.0.0",
     "typescript": "rc",
-    "typescript-formatter": "5.2.0",
+    "typescript-formatter": "7.0.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
     "uglifyjs-webpack-plugin": "0.4.4",
     "validate-commit-msg": "2.12.2",
