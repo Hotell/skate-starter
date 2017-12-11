@@ -1,6 +1,7 @@
 const { resolve } = require('path')
 const webpack = require('webpack')
-const { CommonsChunkPlugin, UglifyJsPlugin } = webpack.optimize
+const { CommonsChunkPlugin /* , UglifyJsPlugin */ } = webpack.optimize
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
@@ -127,11 +128,9 @@ module.exports = (env) => {
       ifProd(
         new UglifyJsPlugin({
           sourceMap: true,
-          compress: {
-            screw_ie8: true,
-            warnings: false,
+          uglifyOptions: {
+            output: { comments: false },
           },
-          output: { comments: false },
         })
       ),
 
