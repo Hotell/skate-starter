@@ -8,19 +8,22 @@
     "experimentalDecorators": true,
     "jsx": "react",
     "jsxFactory": "h",
-    "noEmitHelpers": true,
     "importHelpers": true,
     "pretty": true,
     "outDir": "ts-output",
     "lib": [
       "dom",
-      "es2015"
+      "esnext"
     ],
-    "typeRoots": [
-      "node_modules/@types",
-      "manual_types"
-    ],
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "skatejs": [
+        "manual_types/skatejs"
+      ],
+      "@skatejs/*": [
+        "manual_types/@skatejs/*"
+      ]
+    }
   },
   "include": [
     "src/"

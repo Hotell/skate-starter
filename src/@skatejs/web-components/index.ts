@@ -1,6 +1,6 @@
-require('es6-promise').polyfill();
-import { loadWebComponentPolyfills } from './loaders';
+require('es6-promise').polyfill()
+import { loadWebComponentPolyfills } from './loaders'
 
-loadWebComponentPolyfills();
+loadWebComponentPolyfills()
 
-export * from './loaders';
+export * from './loaders'

@@ -1,27 +1,25 @@
-import { Component, h, props } from 'skatejs';
+import { h } from 'preact'
+import { props } from 'skatejs'
+import { Component } from './base'
 
-import { scopeCss } from '../@skatejs/grip-tape';
-import styles from './App.css';
-import { store } from './app.store';
-import { MarkdownEditor } from './components/markdown-editor';
-import './components/markdown-editor';
+import { scopeCss } from '../@skatejs/grip-tape'
+import styles from './App.css'
+import { store } from './app.store'
+import { MarkdownEditor } from './components/markdown-editor'
+// import './components/markdown-editor'
 
 type Props = {
-  greeting: string,
-};
+  greeting: string
+}
 export default class App extends Component<Props> {
-  static get is() { return 'my-app'; }
-  static get props() {
-    return {
-      greeting: props.string
-    };
+  static is = 'my-app'
+  static props = {
+    greeting: { ...props.string, default: 'World' },
   }
 
-  greeting: string = 'World';
+  css = scopeCss(this, styles)
 
-  css = scopeCss(this, styles);
-
-  renderCallback({ greeting }: Props) {
+  render({ greeting }: Props) {
     return (
       <div>
         <style>{this.css}</style>
@@ -32,6 +30,6 @@ export default class App extends Component<Props> {
         <MarkdownEditor.is content={store.content} />
         {/*<my-markdown-editor content={store.content}/>*/}
       </div>
-    );
+    )
   }
 }

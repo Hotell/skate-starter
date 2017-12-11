@@ -1,17 +1,16 @@
 declare module '*.css' {
-  const _: string;
-  export default _;
+  const _: string
+  export default _
 }
 
 declare module 'snarkdown' {
-  export default function parse(md: string): string;
+  export default function parse(md: string): string
 }
 
-declare module '@webcomponents/template';
-declare module '@webcomponents/webcomponents-platform';
-declare module '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
-declare module '@webcomponents/webcomponentsjs/custom-elements-es5-adapter';
-
+declare module '@webcomponents/template'
+declare module '@webcomponents/webcomponents-platform'
+declare module '@webcomponents/webcomponentsjs/webcomponents-sd-ce'
+declare module '@webcomponents/webcomponentsjs/custom-elements-es5-adapter'
 
 // webcomponents polyfill
 
@@ -26,5 +25,5 @@ interface CustomElementRegistry {
   forcePolyfill: any
 }
 
-declare const require: (name: string) => any;
-declare const process: any;
+declare const require: (name: string) => any
+declare const process: any
