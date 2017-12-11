@@ -1,6 +1,5 @@
 export const store = {
-  content: (
-    `## Snarkdown
+  content: `## Snarkdown
 
 ![snarkdown](http://emojipop.net/data/images/emoji_set_77.png)
 
@@ -11,7 +10,5 @@ Here's an [**important** anchor link](#example).
 Two newlines creates a line break.
 
 Or, end a line with two spaces.
-Just like that!`
-  )
-};
-
+Just like that!`,
+}
