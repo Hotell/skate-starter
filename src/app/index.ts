@@ -1,8 +1,6 @@
-import { define } from 'skatejs';
-import RawApp from './App';
+import { define } from 'skatejs'
+import RawApp from './App'
 
-const App = define(RawApp as any) as typeof RawApp;
+const App = define(RawApp)
 
-export {
-  App
-};
+export { App }

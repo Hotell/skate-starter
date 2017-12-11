@@ -1,10 +1,28 @@
-// import * as skatejs from 'skatejs'
+// Type definitions for skatejs 5.0
+// Project: https://github.com/skatejs/skatejs
+// Definitions by: Martin Hochel <https://github.com/Hotell>
+// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
+// TypeScript Version: 2.5
 
-// SkateJS has not proper types for define
+export as namespace skate
 
+// Public API: mixins
+export { withComponent, withLifecycle, withContext, withChildren, withUpdate, withRenderer } from './api'
 
-// declare module 'skatejs' {
-//   export interface Define {
-//     <T extends Partial<typeof HTMLElement>>(ctor: T): T;
-//   }
-// }
+// Public API: utils
+export { prop, props, link, define, emit, shadow, name } from './api'
+
+// Public types ( Unfortunately TS doesn't have Opaque Types like Flow )
+export {
+  Constructor,
+  CustomElement,
+  ComponentProps,
+  PropOptions,
+  Renderer,
+  WithComponent,
+  WithLifecycle,
+  WithContext,
+  WithChildren,
+  WithUpdate,
+  WithRenderer,
+} from './types'

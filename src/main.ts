@@ -1,22 +1,20 @@
-import { Component } from 'skatejs';
-import { whenWebComponentsReady } from './@skatejs/web-components';
-import './styles.css';
+import './styles.css'
 
-const mountPoint = document.getElementById('app');
+import { whenWebComponentsReady } from './@skatejs/web-components'
 
-whenWebComponentsReady()
-  .then(() => {
-    // tslint:disable-next-line:whitespace
-    return import( /* webpackChunkName: "app" */ './app')
-      .then(({ App }) => {
-        // here you can boot your App via your lib/framework specific code
-        render(App, mountPoint);
-      })
-      .catch(console.error);
-  });
+whenWebComponentsReady().then(() => {
+  // tslint:disable-next-line:whitespace
+  return import(/* webpackChunkName: "app" */ './app')
+    .then(({ App }) => {
+      const mountPoint = document.getElementById('app')
+      // here you can boot your App via your lib/framework specific code
+      render(App, mountPoint)
+    })
+    .catch(console.error)
+})
 
-const render = (what: typeof Component, where: HTMLElement | null) => {
+const render = (what: typeof HTMLElement & { is: string }, where: HTMLElement | null) => {
   if (where) {
-    where.innerHTML = `<${what.is}></${what.is}>`;
+    where.innerHTML = `<${what.is}></${what.is}>`
   }
-};
+}
