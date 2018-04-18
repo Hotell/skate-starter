@@ -70,7 +70,7 @@
     "typescript": "rc",
     "typescript-formatter": "5.2.0",
     "uglify-js": "git://github.com/mishoo/UglifyJS2#harmony-v2.8.22",
-    "uglifyjs-webpack-plugin": "0.4.4",
+    "uglifyjs-webpack-plugin": "1.2.5",
     "validate-commit-msg": "2.12.2",
     "webpack": "2.6.1",
     "webpack-bundle-analyzer": "2.8.2",
