@@ -86,6 +86,6 @@
     "sanitize.css": "5.0.0",
     "skatejs": "5.0.0-alpha.10",
     "snarkdown": "1.2.2",
-    "tslib": "1.7.1"
+    "tslib": "1.9.2"
   }
 }
