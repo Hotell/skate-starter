@@ -59,7 +59,7 @@
     "husky": "0.13.4",
     "progress-bar-webpack-plugin": "1.9.3",
     "pushstate-server": "3.0.0",
-    "shx": "0.2.2",
+    "shx": "0.3.1",
     "source-map-loader": "0.2.1",
     "standard-version": "4.2.0",
     "strip-json-comments-cli": "1.0.1",
