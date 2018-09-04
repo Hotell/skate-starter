@@ -84,7 +84,7 @@
     "es6-promise": "4.1.0",
     "preact": "8.1.0",
     "sanitize.css": "5.0.0",
-    "skatejs": "5.0.0-alpha.10",
+    "skatejs": "5.2.4",
     "snarkdown": "1.2.2",
     "tslib": "1.7.1"
   }
