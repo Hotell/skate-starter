@@ -79,7 +79,7 @@
   },
   "dependencies": {
     "@webcomponents/template": "1.0.0",
-    "@webcomponents/webcomponents-platform": "1.0.0",
+    "@webcomponents/webcomponents-platform": "1.0.1",
     "@webcomponents/webcomponentsjs": "1.0.1",
     "es6-promise": "4.1.0",
     "preact": "8.1.0",
