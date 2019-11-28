@@ -63,7 +63,7 @@
     "source-map-loader": "0.2.1",
     "standard-version": "4.2.0",
     "strip-json-comments-cli": "1.0.1",
-    "style-loader": "0.18.2",
+    "style-loader": "1.0.1",
     "to-string-loader": "1.1.5",
     "tslint": "5.4.3",
     "tslint-react": "3.0.0",
