@@ -57,7 +57,7 @@
     "extract-text-webpack-plugin": "2.1.2",
     "html-webpack-plugin": "2.28.0",
     "husky": "0.13.4",
-    "progress-bar-webpack-plugin": "1.9.3",
+    "progress-bar-webpack-plugin": "2.1.0",
     "pushstate-server": "3.0.0",
     "shx": "0.2.2",
     "source-map-loader": "0.2.1",
