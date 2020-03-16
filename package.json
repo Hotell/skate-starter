@@ -78,7 +78,7 @@
     "webpack-dev-server": "2.4.5"
   },
   "dependencies": {
-    "@webcomponents/template": "1.0.0",
+    "@webcomponents/template": "1.4.2",
     "@webcomponents/webcomponents-platform": "1.0.0",
     "@webcomponents/webcomponentsjs": "1.0.1",
     "es6-promise": "4.1.0",
